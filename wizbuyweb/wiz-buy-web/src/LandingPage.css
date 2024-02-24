@@ -38,7 +38,7 @@ body {
   
   /* Hero section styles */
   #hero {
-    background-color: #ffe4b5; /* Light orange */
+    background-color: #ffcccc; /* Light reddish */
     padding: 100px 20px;
     text-align: center;
   }
@@ -49,6 +49,7 @@ body {
     font-weight: 700;
     font-size: 60px;
     line-height: 90px;
+    color: #ff0000; /* Red color for text */
   }
 
   #hero img {
@@ -57,19 +58,20 @@ body {
   
   #hero p {
     font-size: 1.5rem;
+    color: #ff0000; /* Red color for text */
   }
   
   #hero button {
     padding: 10px 20px;
     font-size: 1.2rem;
-    background-color: #ff7f50; /* Orangish color */
-    color: #fff;
+    background-color: #ff0000; /* Reddish color */
+    color: #fff; /* White color for text */
     border: none;
     cursor: pointer;
   }
   
   #hero button:hover {
-    background-color: #ff6347; /* Darker orangish color */
+    background-color: #cc0000; /* Darker reddish color */
   }
   
   /* Features section styles */
@@ -129,3 +131,15 @@ body {
     font-size: 1.5rem;
   }
   
+  /* Footer styles */
+footer {
+    background-color: #ffcccc; /* Light reddish */
+    color: black; /* White color for text */
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+footer p {
+    font-size: 0.9rem; /* Adjust font size as needed */
+    color: darkcyan; /* Lighter color for copyright text */
+  }
