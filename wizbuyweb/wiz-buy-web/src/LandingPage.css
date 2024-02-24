@@ -131,6 +131,10 @@ body {
     font-size: 1.5rem;
   }
   
+  #supabase {
+    text-align: center;
+  }
+
   /* Footer styles */
 footer {
     background-color: #ffcccc; /* Light reddish */
