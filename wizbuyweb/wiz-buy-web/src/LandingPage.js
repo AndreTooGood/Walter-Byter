@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -48,6 +49,11 @@ const LandingPage = () => {
       <section id="contact">
         <h2>Contact Us</h2>
         <p>Have questions? Reach out to us at arunsanyals@gmail.com</p>
+      </section>
+      
+      <section id="supabase">
+        <p>Click below to view the list of client diagnostics:</p>
+        <Link to="/userlist">View Now</Link>
       </section>
 
       {/* Footer */}
