@@ -60,9 +60,22 @@ class _DashScreenState extends State<DashScreen> {
                   ...tabBarIcons.map(
                     (icon) => IconButton(
                       onPressed: () {
-                        icon == FontAwesomeIcons.house
-                          ? pageController.jumpToPage(0)
-                          : pageController.jumpToPage(1);
+                        if (icon == FontAwesomeIcons.house) {
+                          pageController.jumpToPage(0);
+                        } else {
+                          if (icon == FontAwesomeIcons.compass) {
+                            pageController.jumpToPage(1);
+                          } else {
+                            if (icon == FontAwesomeIcons.cartShopping) {
+                              pageController.jumpToPage(2);
+                            } else {
+                              if (icon == FontAwesomeIcons.user) {
+                                pageController.jumpToPage(3);
+                              }
+                            }
+                          }
+                        }
+
                       },
                       icon: Icon(
                         icon,

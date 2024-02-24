@@ -19,8 +19,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
   late final StreamSubscription<AuthState> _authSubcription;
 
   @override
-  void dispose(){
+  void dispose() {
     _emailController.dispose();
+    _authSubcription.cancel();
     super.dispose();
   }
 
@@ -28,12 +29,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     super.initState();
     passwordVisible = true;
-    supabase.auth.onAuthStateChange.listen((event) { 
+    _authSubcription = supabase.auth.onAuthStateChange.listen((event) {
       final session = event.session;
-      if (session != null){
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
+      if (session != null) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
             builder: (_) => DashScreen(),
-        ));
+          ),
+        );
       }
     });
   }
@@ -76,8 +79,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               width: 380,
               height: 65,
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 15, top: 0, bottom: 0),
+                padding: const EdgeInsets.only(
+                    left: 20, right: 15, top: 0, bottom: 0),
                 child: TextField(
                   style: TextStyle(
                     color: Colors.red[800],
@@ -106,7 +109,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       borderRadius: BorderRadius.circular(50),
                     ),
                     alignLabelWithHint: false,
-        
                   ),
                   keyboardType: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.done,
@@ -120,8 +122,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               width: 380,
               height: 65,
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 15, top: 0, bottom: 0),
+                padding: const EdgeInsets.only(
+                    left: 20, right: 15, top: 0, bottom: 0),
                 child: TextField(
                   controller: _emailController,
                   style: TextStyle(
@@ -151,8 +153,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               width: 380,
               height: 65,
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 15, top: 0, bottom: 0),
+                padding: const EdgeInsets.only(
+                    left: 20, right: 15, top: 0, bottom: 0),
                 child: TextField(
                   obscureText: passwordVisible,
                   style: TextStyle(
@@ -182,8 +184,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               width: 380,
               height: 65,
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 20, right: 15, top: 0, bottom: 0),
+                padding: const EdgeInsets.only(
+                    left: 20, right: 15, top: 0, bottom: 0),
                 child: TextField(
                   style: TextStyle(
                     color: Colors.red[800],
@@ -220,29 +222,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 style: ElevatedButton.styleFrom(
                     primary: Colors.red[600], fixedSize: Size(150, 53)),
-                onPressed: () async{
-                  try{
+                onPressed: () async {
+                  try {
                     final email = _emailController.text.trim();
                     await supabase.auth.signInWithOtp(
-                      email: email,
-                      emailRedirectTo: "io.supabase.flutterquickstart://login-callback/"
-
-                    );
-                    if(mounted){
+                        email: email,
+                        emailRedirectTo:
+                            "io.supabase.flutterquickstart://login-callback/");
+                    if (mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Check your Inbox'),),);
+                          content: Text('Check your Inbox'),
+                        ),
+                      );
                     }
-                  } on AuthException catch(error){
+                  } on AuthException catch (error) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(error.message),
-                        backgroundColor: Theme.of(context).colorScheme.error,),);
-                  }catch(error){
+                        backgroundColor: Theme.of(context).colorScheme.error,
+                      ),
+                    );
+                  } catch (error) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Error occured, please retry'),
-                        backgroundColor: Theme.of(context).colorScheme.error,),);
+                        backgroundColor: Theme.of(context).colorScheme.error,
+                      ),
+                    );
                   }
                 },
               ),
@@ -276,5 +283,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
-
-

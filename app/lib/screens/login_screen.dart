@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../main.dart';
+import 'dash_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -129,38 +130,43 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: ElevatedButton.styleFrom(
                     primary: Colors.red[600], fixedSize: Size(150, 53)),
                 onPressed: () async {
-                  try {
-                    final email = _emailController.text.trim();
-                    await supabase.auth.signInWithPassword(
-                        email: email,
-                        password: password);
-                    await supabase.auth.signInWithOtp(
-                      email: email,
-                      emailRedirectTo:
-                          "io.supabase.flutterquickstart://login-callback/",
-                    );
-                    if (mounted) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Check your Inbox'),
-                        ),
-                      );
-                    }
-                  } on AuthException catch (error) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(error.message),
-                        backgroundColor: Theme.of(context).colorScheme.error,
-                      ),
-                    );
-                  } catch (error) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Error occured, please retry'),
-                        backgroundColor: Theme.of(context).colorScheme.error,
-                      ),
-                    );
-                  }
+
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+    builder: (_) => DashScreen(),
+    ));
+
+                  // try {
+                  //   final email = _emailController.text.trim();
+                  //   await supabase.auth.signInWithPassword(
+                  //       email: email,
+                  //       password: password);
+                  //   await supabase.auth.signInWithOtp(
+                  //     email: email,
+                  //     emailRedirectTo:
+                  //         "io.supabase.flutterquickstart://login-callback/",
+                  //   );
+                  //   if (mounted) {
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //       SnackBar(
+                  //         content: Text('Check your Inbox'),
+                  //       ),
+                  //     );
+                  //   }
+                  // } on AuthException catch (error) {
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     SnackBar(
+                  //       content: Text(error.message),
+                  //       backgroundColor: Theme.of(context).colorScheme.error,
+                  //     ),
+                  //   );
+                  // } catch (error) {
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     SnackBar(
+                  //       content: Text('Error occured, please retry'),
+                  //       backgroundColor: Theme.of(context).colorScheme.error,
+                  //     ),
+                  //   );
+                  // }
                 },
               ),
             ),
