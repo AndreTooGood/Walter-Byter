@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import '../screens/notifications.dart';
+
 class TopContainer extends StatelessWidget {
   final String title;
   final String searchBarTitle;
@@ -28,25 +30,41 @@ class TopContainer extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Container(
-              height: 40,
-              width: 40,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.red[200],
+            // Container(
+            //   height: 40,
+            //   width: 40,
+            //   alignment: Alignment.center,
+            //   decoration: BoxDecoration(
+            //     shape: BoxShape.circle,
+            //     color: Colors.red[200],
+            //   ),
+            //   child: Stack(
+            //     children: [
+            //       Icon(
+            //         FontAwesomeIcons.bell,
+            //         color: Colors.red[800],
+            //         size: 23,
+            //       ),
+            //
+            //     ],
+            //   ),
+            // ),
+            ClipOval(
+              child: Material(
+                color: Colors.red[200], // Button color
+                child: InkWell(
+                  splashColor: Colors.red, // Splash color
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                              builder: (_) => NotificationScreen(),
+                          ));
+                  },
+                  child: SizedBox(width:40 , height: 40, child: Icon(FontAwesomeIcons.bell,
+            color: Colors.red[800],
+            size: 23,)),
+                ),
               ),
-              child: Stack(
-                children: [
-                  Icon(
-                    FontAwesomeIcons.bell,
-                    color: Colors.red[800],
-                    size: 23,
-                  ),
-
-                ],
-              ),
-            ),
+            )
 
           ],
         ),

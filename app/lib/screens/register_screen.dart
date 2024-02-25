@@ -133,7 +133,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   decoration: InputDecoration(
                       prefixIcon: Icon(
-                        Icons.person,
+                        Icons.mail,
                         color: Colors.red[900],
                       ),
                       filled: true,
@@ -164,7 +164,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   decoration: InputDecoration(
                       prefixIcon: Icon(
-                        Icons.person,
+                        Icons.key,
                         color: Colors.red[900],
                       ),
                       filled: true,
@@ -194,7 +194,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   decoration: InputDecoration(
                       prefixIcon: Icon(
-                        Icons.person,
+                        Icons.key,
                         color: Colors.red[900],
                       ),
                       filled: true,
@@ -260,10 +260,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(
                   height: 88,
                 ),
-                Text('Don\'t have an account?'),
+                Text('Have an account?'),
                 TextButton(
                   child: Text(
-                    'Register Now',
+                    'Log In',
                     style: TextStyle(color: Colors.red[600]),
                   ),
                   onPressed: () {

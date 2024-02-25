@@ -1,3 +1,5 @@
+import 'package:app/screens/grocery_screen.dart';
+import 'package:app/screens/household_screen.dart';
 import 'package:app/widgets/top_container.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -18,7 +20,7 @@ class _LandingScreenState extends State<LandingScreen>
   @override
   void initState() {
     super.initState();
-    tabController =TabController(length: 4, vsync: this, initialIndex: 0);
+    tabController =TabController(length: 2, vsync: this, initialIndex: 0);
   }
   @override
   void dispose(){
@@ -33,8 +35,10 @@ class _LandingScreenState extends State<LandingScreen>
 
   ];
 
+
   @override
   Widget build(BuildContext context) {
+    
     return SingleChildScrollView(
 
 
@@ -53,10 +57,10 @@ class _LandingScreenState extends State<LandingScreen>
               options: CarouselOptions(
                 // Set the desired options for the carousel
                 height: 200, // Set the height of the carousel
-                autoPlay: false, // Enable auto-play
+                autoPlay: true, // Enable auto-play
                 autoPlayCurve: Curves.easeInOut, // Set the auto-play curve
                 autoPlayAnimationDuration: Duration(milliseconds: 500), // Set the auto-play animation duration
-                aspectRatio: 4/3, // Set the aspect ratio of each item
+                aspectRatio: 16/9, // Set the aspect ratio of each item
                 // You can also customize other options such as enlargeCenterPage, enableInfiniteScroll, etc.
               ),
             ),
@@ -96,7 +100,9 @@ class _LandingScreenState extends State<LandingScreen>
                             )
                           ] :null
                   ),
-                  child: Text('Grocery'),
+                  child: Text('Grocery',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Container(
                   width: double.infinity,
@@ -116,11 +122,28 @@ class _LandingScreenState extends State<LandingScreen>
                   )
                     ] :null
                 ),
-                  child: Text('Household'),
+                  child: Text('Household',
+                  textAlign: TextAlign.center,
+                  ),
                   ),
               ],
             ),
+
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: TabBarView(
+              physics: NeverScrollableScrollPhysics(),
+              controller: tabController,
+
+              children: [
+                GroceyScreen(),
+                HouseholdScreen(),
+              ],
+
+            ),
           )
+
         ],
       ) ,
     );
