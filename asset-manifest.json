@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/walter-byter/static/css/main.9d680ed2.css",
-    "main.js": "/walter-byter/static/js/main.b89d1fc7.js",
-    "static/js/952.97fcdf2c.chunk.js": "/walter-byter/static/js/952.97fcdf2c.chunk.js",
-    "index.html": "/walter-byter/index.html",
-    "main.9d680ed2.css.map": "/walter-byter/static/css/main.9d680ed2.css.map",
-    "main.b89d1fc7.js.map": "/walter-byter/static/js/main.b89d1fc7.js.map",
-    "952.97fcdf2c.chunk.js.map": "/walter-byter/static/js/952.97fcdf2c.chunk.js.map"
+    "main.css": "/Walter-Byter/static/css/main.9d680ed2.css",
+    "main.js": "/Walter-Byter/static/js/main.30760701.js",
+    "static/js/952.97fcdf2c.chunk.js": "/Walter-Byter/static/js/952.97fcdf2c.chunk.js",
+    "index.html": "/Walter-Byter/index.html",
+    "main.9d680ed2.css.map": "/Walter-Byter/static/css/main.9d680ed2.css.map",
+    "main.30760701.js.map": "/Walter-Byter/static/js/main.30760701.js.map",
+    "952.97fcdf2c.chunk.js.map": "/Walter-Byter/static/js/952.97fcdf2c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9d680ed2.css",
-    "static/js/main.b89d1fc7.js"
+    "static/js/main.30760701.js"
   ]
 }
